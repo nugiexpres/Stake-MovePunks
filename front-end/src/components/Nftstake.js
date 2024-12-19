@@ -1,5 +1,20 @@
 import React from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
+import React, { useState, useEffect } from 'react';
+import "../assets/styles.css";
+import image1 from "../assets/img/mint-punk.png";
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
+import { useSelector } from "react-redux";
+import { ethers } from "ethers";
+import axios from "axios"
+import { Table } from "react-bootstrap";
+import { CircularProgress } from "@mui/material"
+
+import stakingContract from "../artifacts/NFTStakingVault.sol/NFTStakingVault.json";
+import nftContract from "../artifacts/KryptoPunks.sol/KryptoPunks.json";
+import { stakingContractAddress, nftContractAddress, ownerAddress, networkDeployedTo } from "../utils/contracts-config";
+import networksMap from "../utils/networksMap.json";
 
 const MyItems = ({ userNfts, info, loading, stakeItem, unstakeItem }) => {
     return (
